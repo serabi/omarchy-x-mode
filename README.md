@@ -191,7 +191,7 @@ MIT. See `LICENSE`. The vendored hyprbars is BSD 3-Clause; see [hyprbars/README.
 
 ---
 
-### Donations
+## Donations
 
 - **EVM Chains (ETH, USDT, USDC, Base, Polygon, Arbitrum, BSC, Linea):** `0x581751947baDFf4c46C7A28a96Cf3F5708a7f930`
 - **USDT (TRC20 / TRON):** `TLpzPs9YiUo5aJkHfGsn2FJViGYeN1mu3L`
