@@ -93,7 +93,7 @@ The every-app list starts with:
 
 Then the same rows in both lists:
 
-* **Super as Ctrl** — Super+letter becomes Ctrl+letter, so `⌘T`, `⌘R`, `⌘L` work like Command on a Mac
+* **Super as Ctrl** — Super+letter and Super+punctuation become Ctrl+letter and Ctrl+punctuation, so `⌘T`, `⌘R`, `⌘L` and `⌘⇧\` work like Command on a Mac
 * **`⌘1`…`0` switch tabs** — needs Workspaces on F1…F10
 * **`⌃1`…`0` switch tabs** — works without it; off, they switch the app’s own tabs (browser, editor)
 * **`⌘`-click as `⌃`-click**

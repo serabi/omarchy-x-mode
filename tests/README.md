@@ -138,6 +138,7 @@ one pixels test needs `grim` and ImageMagick's `compare` (`magick`).
 | `integration/chrome_off_drag_reaches_bar_test.sh` | without chrome the box reaches the bar |
 | `integration/chrome_off_no_group_test.sh` | a chrome-off window is never grouped |
 | `integration/ctrl_as_super_test.sh` | Super as Ctrl: the free Super+keys are bound, occupied ones and the flag being off are not |
+| `integration/ctrl_as_super_shift_punct_test.sh` | punctuation takes a Shift variant too, and the bind fires: Cmd+Shift+\ reaches the app as Ctrl+Shift+\ |
 | `integration/ctrl_click_test.sh` | Super+click (left/right/middle) is bound as Ctrl+click |
 | `integration/steal_occupied_test.sh` | an occupied Super key stolen for one app is Ctrl+key there and the original action everywhere else (Super+Q, Super+Tab, Super+F) |
 | `integration/ctrl_c_shift_test.sh` | Ctrl+C goes in shifted for the flagged app and stays plain for the rest |
