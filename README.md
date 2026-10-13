@@ -1,5 +1,7 @@
 # A Mac-like desktop for Omarchy
 
+> **serabi fork:** a rounded, frosted glass dock. See [`extras/glass`](extras/glass/README.md) for the Hyprland blur piece. Upstream: [timurguseynov/omarchy-x-mode](https://github.com/timurguseynov/omarchy-x-mode).
+
 **X Mode** — floating windows, a Mac titlebar with same-app tabs, Rectangle-style snapping, a right-edge dock, Command-Tab, and the shortcuts you already use on macOS — on [Omarchy](https://omarchy.org). Coming from a Mac, or already tiling: Linux and Omarchy stay, and so do the controls. How the windows are kept does not.
 
 > Optional. Omarchy tiling stays the default. The top-bar button turns X Mode off; nothing to reinstall.

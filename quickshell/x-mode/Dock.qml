@@ -84,9 +84,10 @@ Item {
   readonly property int dockGap: Style.gapsOut || 0
   // Empty dock still paints a one-icon card so it does not collapse to a pill.
   readonly property int minIconsHeight: iconSize
-  // Dock corner radius, following the window rounding (decoration:rounding via
-  // Style.cornerRadius). A theme with square corners (0) keeps the dock square.
-  readonly property int dockRadius: Math.round(Style.cornerRadius || 0)
+  // Glass dock: always rounded, whatever the window rounding, so it reads as a
+  // pane of glass rather than a box. Capped at half the card so a narrow dock
+  // becomes a pill, never a shape with crossing corners.
+  readonly property int dockRadius: Math.min(16, Math.floor(cardWidth / 2))
 
   readonly property var focusedClient: {
     for (var i = 0; i < clients.length; i++) {
@@ -766,9 +767,23 @@ Item {
             // The layer is exactly the card; its right margin is the screen gap.
             anchors.fill: parent
             radius: root.dockRadius
-            color: Util.alpha(Color.background, 0.85)
-            border.color: Util.alpha(Color.foreground, 0.15)
+            // Translucent fill for the compositor to frost (blur layer rule on
+            // "x-mode-dock"), with a faint white rim instead of a solid outline.
+            color: Util.alpha(Color.background, 0.45)
+            border.color: Qt.rgba(1, 1, 1, 0.16)
             border.width: 1
+
+            // Soft sheen down from the top, like light catching the pane.
+            Rectangle {
+              anchors.fill: parent
+              anchors.margins: 1
+              radius: Math.max(0, dockBg.radius - 1)
+              gradient: Gradient {
+                GradientStop { position: 0.0; color: Qt.rgba(1, 1, 1, 0.10) }
+                GradientStop { position: 0.35; color: Qt.rgba(1, 1, 1, 0.02) }
+                GradientStop { position: 1.0; color: Qt.rgba(1, 1, 1, 0.0) }
+              }
+            }
 
             // `panel` is only in scope here (a direct child), not in the nested
             // icon delegate Component, so publish its top edge for menuScreenY.

@@ -74,9 +74,10 @@ Item {
           // Align the popup with the icon it was opened from (the card's
           // pad puts the first row at the icon's top).
           y: Math.max(8, Math.min(root.screen.height - height - 8, root.menuY - root.pad))
-          radius: root.dockRadius
-          color: Util.alpha(Color.background, 0.97)
-          border.color: Util.alpha(Color.foreground, 0.2)
+          radius: Math.max(root.dockRadius, 14)
+          // Glass to match the dock; kept more opaque so menu text stays legible.
+          color: Util.alpha(Color.background, 0.8)
+          border.color: Qt.rgba(1, 1, 1, 0.16)
           border.width: 1
 
           Column {
