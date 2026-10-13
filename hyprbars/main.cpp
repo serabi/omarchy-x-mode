@@ -456,7 +456,12 @@ static int luaGroupable(lua_State* L) {
     PHLWINDOW w = nullptr;
     if (lua_gettop(L) >= 1 && !lua_isnil(L, 1))
         w = Config::Lua::Bindings::Internal::windowFromLuaSelectorOrObject(L, 1, "hyprbars.groupable");
-    if (!w) {
+    // A window that is closing can still be handed in by a Lua timer after its
+    // surface is gone. shouldBeFloated dereferences m_xwaylandSurface for X11
+    // windows without a null check, so an XWayland dialog closing mid-tick
+    // (Stardrop's file picker) crashed the compositor. Unmapped or surfaceless
+    // windows are never grouped anyway.
+    if (!w || !w->m_isMapped || (w->m_isX11 && !w->m_xwaylandSurface)) {
         lua_pushboolean(L, false);
         return 1;
     }
